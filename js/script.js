@@ -1,7 +1,20 @@
 // Complete Day 1 goals here
+let song_names=['Lilac','Celebrity','bibibi'];
+let song_links=['https://www.youtube.com/watch?v=v7bnOxV4jAc','https://www.youtube.com/watch?v=0-q1KafFCLU ','https://www.youtube.com/watch?v=nM0xDI5R50E'];
+let song_artist=['iu','iu','iu']
+let song_time=['3:34',"3:19","3:29"]
+let song_image=["https://doopiano.com/wp-content/uploads/2021/03/LILAC.jpg","https://hashtaglegend.com/wp-content/uploads/2021/01/IU-2.jpg","https://thebiaslistcom.files.wordpress.com/2018/10/iu-bbibbi.jpg "]
+let indexes =[0,1,2]
 
 function displaySongInfo() {
-  // Complete the Day 2 goals inside this function
+  indexes.forEach(function(one){
+      $(".images").append(`<img src="${song_image[one]}">`);
+      $(".songs").append(`<p>${song_names[one]}</p>`);
+      $(".artists").append(`<p>${song_artist[one]}</p>`);
+      $(".lengths").append(`<p>${song_time[one]}</p>`);
+      $(".links").append(`<a href="${song_links[one]}">Link here</a>`);
+  });
+
 }
 
 function emptySongInfo() {
