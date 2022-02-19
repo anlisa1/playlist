@@ -30,10 +30,15 @@ function emptySongInfo() {
 }
 
 function addSongInfo() {
-  // Complete Day 3 goals inside this function
+  indexes.push(indexes.length)
+  song_names.push($(".title").val());
+  song_links.push($(".link").val());
+  song_artist.push($(".artist").val());
+  song_time.push($(".length").val());
+  song_image.push($(".image").val());
 }
 
-$("#add").click(function () {
+$(".add").click(function () {
   emptySongInfo();
   addSongInfo();
   displaySongInfo();
