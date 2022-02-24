@@ -49,6 +49,7 @@ h1 {
   height: 100px;
   font-weight: bold;
   margin: 20px;
+  margin-right:0px;
 }
 
 .form {
