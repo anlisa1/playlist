@@ -10,16 +10,35 @@ let song2 = {name:"Celebrity", link:"https://www.youtube.com/watch?v=0-q1KafFCLU
 let song3 = {name:"Bibibi", link:"https://www.youtube.com/watch?v=nM0xDI5R50E",artist:"iu", image:"https://thebiaslistcom.files.wordpress.com/2018/10/iu-bbibbi.jpg ", time:"3:29",}
 let organizer = [song1,song2,song3]
 function displaySongInfo() {
+  emptySongInfo();
+  if (organizer.length===0){
+    let c= "";
+    $(".del").attr("placeholder",`No more songs to delete`)
+  }
+  else{
   organizer.forEach(function(one){
+      console.log(`times: ${one.link}`)
       $(".images").append(`<img src="${one.image}">`);
       $(".songs").append(`<p>${one.name}</p>`);
       $(".artists").append(`<p>${one.artist}</p>`);
       $(".lengths").append(`<p>${one.time}</p>`);
       $(".links").append(`<a href="${one.link}">Link here</a>`);
+    $(".del").attr("placeholder",`song number deletion 1 to ${organizer.length}`)
   });
-
+  }
+  
 }
-
+ 
+$(".delete").click(function(){
+  let a = parseInt($(".del").val());
+  console.log(`${a}`)
+  if ((a>=1) && (a<=organizer.length)){  
+      organizer.splice(a-1,a);
+  }
+  console.log(` organizer length: ${organizer.length}`)
+  $(".del").val("");
+  displaySongInfo();
+});
 function emptySongInfo() {
   /* this function empties the divs each time the button is 
   clicked so that your playlist does not repeatedly add the data
@@ -47,10 +66,14 @@ function addSongInfo() {
     image:song_image
   };
   organizer.push(new_song);
+  $(".title").val("");
+  $(".link").val("");
+  $(".artist").val("");
+  $(".length").val("");
+  $(".image").val("");
 }
 
 $(".add").click(function () {
-  emptySongInfo();
   addSongInfo();
   displaySongInfo();
 });
